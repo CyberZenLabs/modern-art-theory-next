@@ -17,12 +17,12 @@ module.exports = {
       }
     }
   },
-  defaultNetwork: 'rinkeby',
+  defaultNetwork: 'goerli',
   networks: {
     hardhat: {},
-    rinkeby: {
-      url: `${process.env.NEXT_PUBLIC_ALCHEMY_RPC_URL}`,
-      accounts: [`0x${process.env.METAMASK_PRIVATE_KEY}`]
+    goerli: {
+      url: `${process.env.GOERLI_RPC_URL}`,
+      accounts: [`0x${process.env.GOERLI_PRIVATE_KEY}`]
     }
   },
   paths: {

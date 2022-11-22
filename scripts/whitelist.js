@@ -11,7 +11,4 @@
  *  in the contract. You can find it in `scripts/setMerkleRoot.js`.
  */
 
-module.exports = [
-  '0x933572D5F83B00A998102b7bf1a99c0f197E685B',
-  '0x8a7aC9834e2D4487Da22Dc130C97Ee8fBDc85568'
-]
+module.exports = ['0xbDF686f422215CfD1071227E07392f1Ee00cbAd3']
