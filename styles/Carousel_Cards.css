@@ -1,0 +1,131 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	height: 100vh;
+}
+
+body {
+	height: 100vh;
+}
+
+.carousel {
+	max-width: 1420px;
+	align-items: center;
+	font-family: Arial;
+	width: 100%;
+	height: 100%;
+	display: grid;
+	justify-content: center;
+	justify-items: center;
+}
+
+.carousel__list {
+	display: flex;
+	list-style: none;
+	position: relative;
+	width: 50%;
+	height: clamp(472px, 100px, 472px);
+	justify-content: center;
+	perspective: 300px;
+	padding: 0;
+}
+
+.carousel__item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	font-size: 0px;
+	width: clamp(25vw, 100px, 300px);
+	box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.5);
+	position: absolute;
+	transition: all 0.3s ease-in;
+	background-size: 100%;
+	aspect-ratio: 472/590;
+	max-width: 350px;
+}
+
+.carousel__item:nth-child(1) {
+	background-image: url(../pages/src/img/Section2_NFT/image1.png);
+}
+
+.carousel__item:nth-child(2) {
+	background-image: url(../pages/src/img/Section2_NFT/image16.png);
+}
+
+.carousel__item:nth-child(3) {
+	background-image: url(../pages/src/img/Section2_NFT/image22.png);
+	box-shadow: 0px 10px 58px 18px rgba(0, 0, 0, 0.25);
+}
+
+.carousel__item:nth-child(4) {
+	background-image: url(../pages/src/img/Section2_NFT/image14.png);
+}
+
+.carousel__item:nth-child(5) {
+	background-image: url(../pages/src/img/Section2_NFT/image21.png);
+}
+
+.carousel__item[data-pos="0"] {
+	z-index: 5;
+}
+
+.carousel__item[data-pos="-1"],
+.carousel__item[data-pos="1"] {
+	/* opacity: 0.7;
+	  filter: blur(1px) grayscale(10%); */
+}
+
+.carousel__item[data-pos="-1"] {
+	transform: translateX(-70%) scale(0.9);
+	z-index: 4;
+}
+
+.carousel__item[data-pos="1"] {
+	transform: translateX(70%) scale(0.9);
+	z-index: 4;
+}
+
+.carousel__item[data-pos="-2"],
+.carousel__item[data-pos="2"] {
+	/* opacity: 0.4; */
+	/* filter: blur(3px) grayscale(20%); */
+}
+
+.carousel__item[data-pos="-2"] {
+	transform: translateX(-140%) scale(0.8);
+	z-index: 3;
+}
+
+.carousel__item[data-pos="2"] {
+	transform: translateX(140%) scale(0.8);
+	z-index: 3;
+}
+
+@media (max-width: 768px) {
+
+	.carousel__item {
+		width: clamp(40vw, 3vw, 50vw);
+		aspect-ratio: 324/404;
+	}
+
+	.carousel__list {
+		height: clamp(55vw, 35vw, 50vw);
+
+	}
+
+	.carousel__item[data-pos="-2"] {
+		transform: translateX(40%) scale(0.8);
+		z-index: 0;
+	}
+
+	.carousel__item[data-pos="2"] {
+		transform: translateX(40%) scale(0.8);
+		z-index: 0;
+	}
+
+}
