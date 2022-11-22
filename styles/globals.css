@@ -1,70 +1,245 @@
-@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Open+Sans:wght@400;500;600&display=swap');
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+	"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+	sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+* {
+	box-sizing: border-box;
+}
 
-:root {
-  --font-family: 'Open Sans', sans-serif;
-  --clr-light: #f0e9e9;
-  --clr-purple: #9b5de5;
-  --clr-pink: #f15bb5;
-  --clr-yellow: #fee440;
-  --clr-blue: #00bbf9;
-  --clr-green: #00f5d4;
-  --clr-selection-bg: #cb3d92;
-  --clr-selection-text: #f4f0f0;
-  --clr-background: #06070a;
+#page-wrap {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
 
-  /* Customize Wallet Modal */
-  /* CUSTOMIZE THE COLOR  PALLETTE */
-  --onboard-white: white;
-  --onboard-black: black;
-  --onboard-primary-1: #2f80ed;
-  --onboard-primary-100: #eff1fc;
-  --onboard-primary-200: #d0d4f7;
-  --onboard-primary-300: #b1b8f2;
-  --onboard-primary-400: #929bed;
-  --onboard-primary-500: #6370e5;
-  --onboard-primary-600: #454ea0;
-  --onboard-primary-700: #323873;
-  --onboard-gray-100: #ebebed;
-  --onboard-gray-200: #c2c4c9;
-  --onboard-gray-300: #999ca5;
-  --onboard-gray-400: #707481;
-  --onboard-gray-500: #33394b;
-  --onboard-gray-600: #242835;
-  --onboard-gray-700: #1a1d26;
-  --onboard-success-100: #d1fae3;
-  --onboard-success-200: #baf7d5;
-  --onboard-success-300: #a4f4c6;
-  --onboard-success-400: #8df2b8;
-  --onboard-success-500: #5aec99;
-  --onboard-success-600: #18ce66;
-  --onboard-success-700: #129b4d;
-  --onboard-danger-100: #ffe5e6;
-  --onboard-danger-200: #ffcccc;
-  --onboard-danger-300: #ffb3b3;
-  --onboard-danger-400: #ff8080;
-  --onboard-danger-500: #ff4f4f;
-  --onboard-danger-600: #cc0000;
-  --onboard-danger-700: #660000;
-  --onboard-warning-100: #ffefcc;
-  --onboard-warning-200: #ffe7b3;
-  --onboard-warning-300: #ffd780;
-  --onboard-warning-400: #ffc74c;
-  --onboard-warning-500: #ffaf00;
-  --onboard-warning-600: #cc8c00;
-  --onboard-warning-700: #664600;
+@font-face {
+	font-family: "SpecifyPersonalExpandedMedium-y5Pd";
+	src: url("../public/fonts/SpecifyPersonalExpandedMedium-y5Pd.ttf");
+}
+
+@font-face {
+	font-family: "SpecifyPersonalExpandedBlack-J1do";
+	src: url("../public/fonts/SpecifyPersonalExpandedBlack-J1do.ttf");
+}
+
+@font-face {
+	font-family: "SpecifyPersonalExpandedThin-lGRD";
+	src: url("../public/fonts/SpecifyPersonalExpandedThin-lGRD.ttf");
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+	monospace;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+*,
+::before,
+::after {
+	box-sizing: border-box;
+	border-style: solid;
+	border-width: 0;
 }
 
 html {
-  scroll-behavior: smooth;
-  font-family: var(--font-family);
-  background: var(--clr-background);
+	/* background: #01012a; */
+	color: #33def4;
 }
 
-::selection {
-  background: var(--clr-selection-bg);
-  color: var(--clr-selection-text);
+html,
+body {
+	overscroll-behavior: none;
+	font-family: Montserrat, sans-serif;
+}
+
+.box {
+	padding: 32px;
+}
+
+h1 {
+	font-size: 2.4rem;
+	padding-bottom: 16px;
+}
+
+.loading {
+	z-index: 9999;
+	background: #01012ad8;
+	color: rgb(248, 248, 248);
+	font-family: "Poppins";
+	font-size: 30px;
+	text-align: center;
+	position: fixed;
+	width: 100%;
+	min-height: calc(100vh - (100px));
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 1;
+	visibility: visible;
+	transition: opacity 0.8s 0.8s cubic-bezier(0.755, 0.05, 0.855, 0.06),
+	visibility 0.8s 0.8s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+
+.loading.loaded {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.loading .loading-container {
+	position: relative;
+	width: 40%;
+	overflow: hidden;
+}
+
+.loading .loading-container .counter {
+	padding: 0.8rem;
+	transform: traslate(0, 0);
+}
+
+.loading .loading-container .counter.loaded {
+	animation: counter-animation 0.8s cubic-bezier(0.755, 0.05, 0.855, 0.06) 0.8s 1 normal forwards running;
+}
+
+.loading .loading-container .line {
+	position: absolute;
+	background: rgb(248, 248, 248);
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 2px;
+}
+
+.loading .loading-container .line.loaded {
+	animation: line-animation 0.8s cubic-bezier(0.755, 0.05, 0.855, 0.06) 0s 1 normal forwards running;
+}
+
+@-moz-keyframes counter-animation {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(0, 10%);
+	}
+}
+
+@-webkit-keyframes counter-animation {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(0, 10%);
+	}
+}
+
+@-o-keyframes counter-animation {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(0, 10%);
+	}
+}
+
+@keyframes counter-animation {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(0, 10%);
+	}
+}
+
+@-moz-keyframes line-animation {
+	0% {
+		left: 0;
+	}
+	100% {
+		left: 100%;
+	}
+}
+
+@-webkit-keyframes line-animation {
+	0% {
+		left: 0;
+	}
+	100% {
+		left: 100%;
+	}
+}
+
+@-o-keyframes line-animation {
+	0% {
+		left: 0;
+	}
+	100% {
+		left: 100%;
+	}
+}
+
+@keyframes line-animation {
+	0% {
+		left: 0;
+	}
+	100% {
+		left: 100%;
+	}
+}
+
+.burger-btn {
+	display: none;
+}
+
+@media (max-width: 768px) {
+	.burger-btn {
+		display: grid;
+		width: 20px;
+		height: 20px;
+		margin-right: 20px;
+		position: relative;
+		cursor: pointer;
+	}
+}
+
+.burger-btn:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 20px;
+	background-color: black;
+	height: 2px;
+}
+
+.burger-btn:after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	width: 20px;
+	background-color: black;
+	height: 2px;
+}
+
+.burger-btn span {
+	position: absolute;
+	top: 9px;
+	width: 20px;
+	background-color: black;
+	height: 2px;
+}
+
+.menu {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 100px;
+	right: 0;
+	transform: translateX(-130%);
+}
+
+.menu-active {
+	transform: translateX(0);
 }
